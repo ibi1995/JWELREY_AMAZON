@@ -210,6 +210,14 @@ GROUP BY
 ```
 ![Category distribution](cat_distribution.png)
 
+Merge the two data sets
+```sql
+-- Create a new table 'products_merged' by merging 'products' and 'products_uae'
+CREATE TABLE products_merged AS
+SELECT * FROM products
+UNION ALL
+SELECT * FROM products_uae;
+```
 
 Word Analysis:
 ```sql
@@ -218,7 +226,7 @@ CREATE TEMPORARY TABLE temp_word AS
 SELECT
     DISTINCT UNNEST(STRING_TO_ARRAY(LOWER(title), ' ')) AS word,
     rating
-FROM products_uae;
+FROM products_merged;
 
 -- Show words with average high rating and highest word occurrence
 SELECT
@@ -236,20 +244,53 @@ HAVING
 ORDER BY
     word_count DESC
 LIMIT 20;
+![Highest rate words](word_rating.png)
 
 
--- Fetch the top 20 most common words found in the product titles.
+-- Get the most occurring words
 SELECT
-    word,
-    COUNT(word) AS word_count
-FROM
-    temp_words
+    COUNT(*) AS word_count,
+    word
+FROM (
+    SELECT
+        UNNEST(STRING_TO_ARRAY(LOWER(title), ' ')) AS word
+    FROM
+        products_merged
+) AS subquery
+WHERE
+    LENGTH(word) > 3
 GROUP BY
     word
+HAVING
+    COUNT(*) >= 100
 ORDER BY
-    word_count DESC
-LIMIT 20;
+    word_count DESC;
 
+```
+| Word Count | Word      |
+|------------|-----------|
+| 14838      | women     |
+| 8526       | earrings  |
+| 7432       | with      |
+| 7231       | necklace  |
+| 6915       | silver    |
+| 6804       | gold      |
+| 6669       | jewelry   |
+| 6340       | bracelet  |
+| 4538       | girls     |
+| 4454       | from      |
+| 4163       | sterling  |
+| 3426       | ring      |
+| 3186       | beads     |
+| 3164       | plated    |
+| 3055       | crystal   |
+| 2763       | gift      |
+| 2471       | bracelets |
+| 2407       | stone     |
+| 2359       | gifts     |
+| 2298       | chain     |
+
+```sql
 -- Check material distribution
 SELECT
     word,
@@ -257,7 +298,7 @@ SELECT
 FROM
     temp_words
 WHERE
-    word IN ('bronze', 'gold', 'silver')
+    word IN ('bronze', 'gold', 'silver', 'sterling',' copper', 'titanium','alloy','zinc')
 GROUP BY
     word
 ORDER BY
