@@ -331,8 +331,10 @@ GROUP BY
     word
 ORDER BY
     word_count DESC;
+```
+![Category distribution](men_women.png)
 
-
+```sql
 -- Check category distribution
 SELECT
     word,
