@@ -13,11 +13,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Pandoc
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y pandoc
-
-    - name: Convert Markdown to PDF
-      run: |
-        pandoc README.md -o output.pdf
+    - name: Convert to PDF
+      uses: docker://pandoc/latex:2.13
+      with:
+        args: README.md -o output.pdf
