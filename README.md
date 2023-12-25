@@ -208,24 +208,35 @@ FROM (
 GROUP BY
     categories;
 ```
+![Category distribution](cat_distribution.png)
+
+
 Word Analysis:
 ```sql
+-- Create the temporary table
+CREATE TEMPORARY TABLE temp_word AS
+SELECT
+    DISTINCT UNNEST(STRING_TO_ARRAY(LOWER(title), ' ')) AS word,
+    rating
+FROM products_uae;
+
 -- Show words with average high rating and highest word occurrence
 SELECT
     word,
-    ROUND(AVG(rating), 1) AS average_rating,
-    COUNT(word) AS word_count
+    COUNT(*) AS word_count,
+    AVG(rating::numeric) AS average_rating
 FROM
-    temp_words
+    temp_word
 WHERE
-    rating IS NOT NULL
+    LENGTH(word) >= 3
 GROUP BY
     word
 HAVING
-    AVG(rating) >= 4.5
+    AVG(rating::numeric) >= 4.5
 ORDER BY
-    word_count DESC,
-    average_rating;
+    word_count DESC
+LIMIT 20;
+
 
 -- Fetch the top 20 most common words found in the product titles.
 SELECT
