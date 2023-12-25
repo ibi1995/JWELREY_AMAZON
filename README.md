@@ -10,7 +10,8 @@ This data analytics project encompasses the entire ETL process, incorporating Py
 
 3. **Consolidation and Loading:** Loading the cleaned data into Tableau for comprehensive analysis and visualization.
 
-## Extract: Amazon Scraper Script
+## 1) Extract: Amazon Scraper Script
+
 
 The `amazon_scraper.py` script serves the purpose of scraping vital product information from Amazon. The extracted variables include:
 
@@ -131,7 +132,7 @@ if __name__ == '__main__':
     # Save DataFrame to CSV
     amazon_df.to_csv("amazon_data.csv", sep=';', header=True, index=False, encoding='utf-8')
 ```
-## Transform: PostgreSQL Script for Data Cleaning and Analysis
+## 2) Transform: PostgreSQL Script for Data Cleaning and Analysis
 
 ### Overview
 
@@ -452,10 +453,26 @@ ORDER BY
 | SWEET ROSE             | 73      | 15      |
 | CTEW                   | 28      | 12      |
 
+## 3) Load: Generate visuals and insights with Tableau & python
+developed a comprehensive dashboard designed for tracking top listings, with a specific focus on their ratings, reviews, and prices. This tool offers a user-friendly interface that provides a clear overview of key metrics associated with leading products and their respective listings. The dashboard is equipped with intuitive interactive features, ensuring easy navigation and understanding of the performance of top-rated products. Additionally, the system allows for the seamless integration of more listing data to display the latest top listings, complete with their categories, country of origin, and availability.
+
+### Top Listings Overview:
+1) Display essential metrics (rating, reviews, price) for the highest-ranked products.
+2) Enable quick assessment of the competitive landscape within the dataset.
+
+### Category Breakdown:
+1) Provide a detailed breakdown of listings based on categories.
+2) Highlight the ranking distribution within each category.
+
+### Country Analysis:
+1) Incorporate a breakdown of listings by the countries of origin.
+2) Allow users to discern patterns and preferences specific to different regions.
+
+The dashboard offers a simple interactive features and easy to understand and keep a track of top rated products, more listing data can be loaded onto this dashboard and it will be aurmtaically updated showing the newest top listing, their categrories, country and availability.
 
 
 ### sentiment analysis with chatgpt
-Feeding the list of the top  most frequently occurring words from both Amazon KSA and UAE datasets into ChatGPT. The goal is to obtain a basic overview of similarities and differences between the two countries.
+I fed the list of the top most frequently occurring words from both Amazon KSA and UAE datasets into ChatGPT. The goal is to obtain a basic overview of similarities and differences between the two countries bellow are the findings:
 
 #### UAE Preferences:
 - The presence of terms like "Pandora" and "Swarovski" suggests a potential sentiment of sophistication and luxury.
