@@ -457,8 +457,6 @@ ORDER BY
 ### sentiment analysis with chatgpt
 Feeding the list of the top  most frequently occurring words from both Amazon KSA and UAE datasets into ChatGPT. The goal is to obtain a basic overview of similarities and differences between the two countries.
 
-#### UAE and KSA Preferences Analysis
-
 #### UAE Preferences:
 - The presence of terms like "Pandora" and "Swarovski" suggests a potential sentiment of sophistication and luxury.
 - Keywords like "elegant" and "modern" imply a preference for contemporary and stylish designs.
@@ -472,8 +470,9 @@ Feeding the list of the top  most frequently occurring words from both Amazon KS
 - Keywords like "wedding" and "anniversary" imply sentiments associated with special occasions and celebrations.
 
 #### Overall Sentiment:
-- Both regions share commonalities in brand preferences, material choices, and color preferences, suggesting a positive sentiment towards these elements in both markets.
+- Both regions share commonalities in material choices, and color preferences, suggesting a positive sentiment towards these elements in both markets.
 - The use of terms like "elegant," "modern," "classic," and "boho" indicates a diverse range of preferences, suggesting a positive sentiment towards a variety of styles.
+
 
 ### Summary
 
