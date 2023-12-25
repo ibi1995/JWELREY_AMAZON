@@ -169,6 +169,14 @@ SET categories =
         ELSE 'others'
     END;
 ```
+Merge the two data sets
+```sql
+-- Create a new table 'products_merged' by merging 'products' and 'products_uae'
+CREATE TABLE products_merged AS
+SELECT * FROM products
+UNION ALL
+SELECT * FROM products_uae;
+```
 #### 1) Exploratory Data Analysis:
 Category Analysis:
 ```sql
@@ -181,14 +189,26 @@ SELECT
     ROUND(AVG(price), 0) AS avg_product_price,
     COUNT(categories) AS cat_count
 FROM
-    cat_rating
+    products_merged
 WHERE
     rating IS NOT NULL
 GROUP BY
     categories
 ORDER BY
     number_of_reviews DESC;
+```
+| Categories  | Average Rating | Number of Reviews | Average Product Price | Category Count |
+|-------------|-----------------|-------------------|------------------------|----------------|
+| Earrings    | 4.2             | 1,356,483         | 118                    | 3,647          |
+| Bracelets   | 4.3             | 1,300,685         | 128                    | 3,114          |
+| Necklaces   | 4.3             | 1,096,230         | 159                    | 2,867          |
+| Others      | 4.2             | 639,381           | 146                    | 1,838          |
+| Rings       | 4.2             | 635,337           | 135                    | 1,600          |
+| Other       | 4.3             | 253,869           | 171                    | 510            |
+| Charms      | 4.7             | 66,461            | 212                    | 113            |
+| Brooches    | 4.6             | 50,206            | 95                     | 295            |
 
+```sql
 -- Check category distribution between UAE and KSA
 SELECT
     categories,
@@ -209,15 +229,6 @@ GROUP BY
     categories;
 ```
 ![Category distribution](cat_distribution.png)
-
-Merge the two data sets
-```sql
--- Create a new table 'products_merged' by merging 'products' and 'products_uae'
-CREATE TABLE products_merged AS
-SELECT * FROM products
-UNION ALL
-SELECT * FROM products_uae;
-```
 
 Word Analysis:
 ```sql
@@ -304,19 +315,23 @@ GROUP BY
     word
 ORDER BY
     word_count DESC;
+```
+![Category distribution](mat_distribution.png)
 
+```sql
 -- Check gender segment
 SELECT
     word,
     COUNT(word) AS word_count
 FROM
-    temp_words
+    temp_word
 WHERE
     word IN ('men', 'women')
 GROUP BY
     word
 ORDER BY
     word_count DESC;
+
 
 -- Check category distribution
 SELECT
