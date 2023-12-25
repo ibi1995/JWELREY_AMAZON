@@ -244,9 +244,10 @@ HAVING
 ORDER BY
     word_count DESC
 LIMIT 20;
+```
 ![Highest rate words](word_rating.png)
 
-
+```sql
 -- Get the most occurring words
 SELECT
     COUNT(*) AS word_count,
