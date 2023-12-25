@@ -454,7 +454,12 @@ ORDER BY
 | CTEW                   | 28      | 12      |
 
 ## 3) Load: Generate visuals and insights with Tableau & python
-developed a comprehensive dashboard designed for tracking top listings, with a specific focus on their ratings, reviews, and prices. This tool offers a user-friendly interface that provides a clear overview of key metrics associated with leading products and their respective listings. The dashboard is equipped with intuitive interactive features, ensuring easy navigation and understanding of the performance of top-rated products. Additionally, the system allows for the seamless integration of more listing data to display the latest top listings, complete with their categories, country of origin, and availability.
+
+### Viuals with Tableau:
+Developed a comprehensive dashboard designed for tracking top listings, with a specific focus on their ratings, reviews, and prices. This tool offers a user-friendly interface that provides a clear overview of key metrics associated with leading products and their respective listings. The dashboard is equipped with intuitive interactive features, ensuring easy navigation and understanding of the performance of top-rated products. Additionally, the system allows for the seamless integration of more listing data to display the latest top listings, complete with their categories, country of origin, and availability.
+
+![Dashboard](listing_dashboard.png)
+
 
 ### Top Listings Overview:
 1) Display essential metrics (rating, reviews, price) for the highest-ranked products.
@@ -466,13 +471,11 @@ developed a comprehensive dashboard designed for tracking top listings, with a s
 
 ### Country Analysis:
 1) Incorporate a breakdown of listings by the countries of origin.
-2) Allow users to discern patterns and preferences specific to different regions.
-
-The dashboard offers a simple interactive features and easy to understand and keep a track of top rated products, more listing data can be loaded onto this dashboard and it will be aurmtaically updated showing the newest top listing, their categrories, country and availability.
+2) Allow users to discover patterns and preferences specific to different regions.
 
 
-### sentiment analysis with chatgpt
-I fed the list of the top most frequently occurring words from both Amazon KSA and UAE datasets into ChatGPT. The goal is to obtain a basic overview of similarities and differences between the two countries bellow are the findings:
+### Sentiment analysis with chatgpt
+I fed the list of the top most frequently occurring words from both Amazon KSA and UAE datasets into ChatGPT. The goal was to obtain a basic overview of similarities and differences between the two countries bellow are the findings:
 
 #### UAE Preferences:
 - The presence of terms like "Pandora" and "Swarovski" suggests a potential sentiment of sophistication and luxury.
@@ -489,6 +492,71 @@ I fed the list of the top most frequently occurring words from both Amazon KSA a
 #### Overall Sentiment:
 - Both regions share commonalities in material choices, and color preferences, suggesting a positive sentiment towards these elements in both markets.
 - The use of terms like "elegant," "modern," "classic," and "boho" indicates a diverse range of preferences, suggesting a positive sentiment towards a variety of styles.
+
+### Breaking down the list of words into further categories:
+With the help of GPT, I was able to categorize the list of most occurring words. The extracted categories are as follows:
+
+1-Attributes
+
+2-Gemstones
+
+3-Animal-themed
+
+4-Color
+
+5-Material/Texture
+
+6-Metals
+
+7-Occasion/Event
+
+8-Style/Design
+
+After getting these categories, I further processed and refined my words data onto these categories via excel after that I hopped over to Python to generate a bunch of colorful bar graphs, as these words had some interesting findings and stories to tell.
+
+### Viuals with Python libraries:
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+data = {
+    'Animal-themed': {'cat': 259, 'butterfly': 613, 'angel': 115, 'snake': 403},
+    'Gemstones': {'diamond': 968, 'emerald': 299, 'sapphire': 293, 'ruby': 133, 'quartz': 527, 'turquoise': 298},
+    'Metals': {'gold': 6804, 'silver': 6915, 'sterling': 4163, 'alloy': 163, 'copper': 546, 'zinc': 179, 'titanium': 235},
+    'Material/Texture': {'acrylic': 186, 'enamel': 443, 'leather': 367, 'beaded': 480, 'braided': 152, 'woven': 104, 'embroidered': 111, 'resin': 109},
+    'Style/Design': {'bohemian': 288, 'boho': 520, 'classic': 312, 'modern': 598, 'vintage': 396, 'gothic': 161, 'ethnic': 144, 'retro': 168, 'punk': 144, 'traditional': 379, 'minimalist': 156},
+    'Occasion/Event': {'wedding': 1438, 'bridal': 375, 'bridesmaid': 122, 'anniversary': 415, 'birthday': 972, 'graduation': 146, 'prom': 144, 'party': 468, 'Valentine': 380, 'Halloween': 181},
+    'Symbols': {'heart': 1772, 'star': 532, 'moon': 520, 'sun': 129, 'infinity': 161, 'clover': 135, 'tree': 253, 'crown': 233, 'flower': 803},
+    'Attributes': {'adjustable': 1340, 'lightweight': 307, 'hypoallergenic': 455, 'magnetic': 406, 'personalized': 197, 'engraved': 122, 'statement': 425, 'stackable': 242, 'stretch': 192},
+    'Color': {'black': 1184, 'blue': 947, 'red': 616, 'green': 728, 'pink': 939, 'purple': 213, 'rainbow': 137, 'white': 1391, 'yellow': 1000, 'turquoise': 298},
+}
+
+for category, values in data.items():
+    plt.figure(figsize=(10, 6))
+
+    colors = plt.cm.viridis(np.linspace(0, 1, len(values)))
+
+    bars = plt.bar(values.keys(), values.values(), color=colors)
+    plt.title(f'Bar Graph for {category}')
+    plt.xlabel('Items')
+    plt.ylabel('Count')
+    plt.xticks(rotation=45, ha='right')
+
+    plt.legend([bars], [category], loc='upper right')
+
+    plt.tight_layout()
+
+    plt.show()
+```
+![Attributes](Attributes_bar_graph.png)
+![Gemstones](Gemstones_bar_graph.png)
+![Animal-themed](Animal-themed_bar_graph.png)
+![Color](Color_bar_graph.png)
+![Material/Texture](Material_Texture_bar_graph.png)
+![Metals](Metals_bar_graph.png)
+![Occasion/Event](Occasion_Event_bar_graph.png)
+![Style/Design](Style_Design_bar_graph.png)
+![Symbols](Symbols_bar_graph.png)
 
 
 ### Summary
