@@ -457,6 +457,7 @@ ORDER BY
 
 ### Viuals with Tableau:
 Developed a comprehensive dashboard designed for tracking top listings, with a specific focus on their ratings, reviews, and prices. This tool offers a user-friendly interface that provides a clear overview of key metrics associated with leading products and their respective listings. The dashboard is equipped with intuitive interactive features, ensuring easy navigation and understanding of the performance of top-rated products. Additionally, the system allows for the seamless integration of more listing data to display the latest top listings, complete with their categories, country of origin, and availability.
+[Link to Dashboard](https://public.tableau.com/views/Jewelrey_listing/Dashboard32?:language=en-US&:display_count=n&:origin=viz_share_link) 
 
 ![Dashboard](listing_dashboard.png)
 
