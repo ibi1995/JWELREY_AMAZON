@@ -327,8 +327,9 @@ GROUP BY
 ORDER BY
     word_count DESC;
 ```
-![Category distribution](mat_distribution.png)
+![Material distribution](material.png)
 
+Lets See the number of jewelry listings between men and women
 ```sql
 -- Check gender segment
 SELECT
@@ -343,8 +344,9 @@ GROUP BY
 ORDER BY
     word_count DESC;
 ```
-![Category distribution](men_women.png)
+![Gender distribution](men_women.png)
 
+Lets see the total jewelry catgeory distribution in our merged data. 
 ```sql
 -- Check category distribution
 SELECT
@@ -361,6 +363,7 @@ ORDER BY
 ```
 ![Category distribution](cat_rank.png)
 
+Look for brand domincance in our listing data. 
 Brand Analysis:
 ```sql
 -- Check brand summary
@@ -409,6 +412,8 @@ LIMIT 10;
 | SHINING DIVA FASHION   | 3.8             | 119,834       | 228         | $59.4         |
 | YELLOW CHIMES          | 3.9             | 84,869        | 212         | $34.4         |
 | GUESS                  | 4.2             | 12,662        | 203         | $169.3        |
+
+Lets compare the brand performances across our regions. 
 ```sql
 -- Compare brand presence across the two markets
 SELECT
@@ -464,6 +469,8 @@ ORDER BY
 | SWEET ROSE             | 73      | 15      |
 | CTEW                   | 28      | 12      |
 
+This would be the end of our sql journey so far eveyrthing looks good and our data is aslo cleaned and processed now we can move to our last stage of the ETL processes which is loading. 
+
 ## 3) Load: Generate visuals and insights with Tableau & python
 
 ### Viuals with Tableau:
@@ -518,11 +525,9 @@ With the help of GPT, I was able to categorize the list of most occurring words.
 
 5-Material/Texture
 
-6-Metals
+6-Occasion/Event
 
-7-Occasion/Event
-
-8-Style/Design
+7-Style/Design
 
 After getting these categories, I further processed and refined my words data onto these categories via excel after that I hopped over to Python to generate a bunch of colorful bar graphs, as these words had some interesting findings and stories to tell.
 
@@ -534,7 +539,6 @@ import numpy as np
 data = {
     'Animal-themed': {'cat': 259, 'butterfly': 613, 'angel': 115, 'snake': 403},
     'Gemstones': {'diamond': 968, 'emerald': 299, 'sapphire': 293, 'ruby': 133, 'quartz': 527, 'turquoise': 298},
-    'Metals': {'gold': 6804, 'silver': 6915, 'sterling': 4163, 'alloy': 163, 'copper': 546, 'zinc': 179, 'titanium': 235},
     'Material/Texture': {'acrylic': 186, 'enamel': 443, 'leather': 367, 'beaded': 480, 'braided': 152, 'woven': 104, 'embroidered': 111, 'resin': 109},
     'Style/Design': {'bohemian': 288, 'boho': 520, 'classic': 312, 'modern': 598, 'vintage': 396, 'gothic': 161, 'ethnic': 144, 'retro': 168, 'punk': 144, 'traditional': 379, 'minimalist': 156},
     'Occasion/Event': {'wedding': 1438, 'bridal': 375, 'bridesmaid': 122, 'anniversary': 415, 'birthday': 972, 'graduation': 146, 'prom': 144, 'party': 468, 'Valentine': 380, 'Halloween': 181},
@@ -560,15 +564,76 @@ for category, values in data.items():
 
     plt.show()
 ```
-![Categories](overall_standing.png)
-![Attributes](Attributes_bar_graph.png)
-![Gemstones](Gemstones_bar_graph.png)
-![Animal-themed](Animal-themed_bar_graph.png)
-![Color](Color_bar_graph.png)
-![Material/Texture](Material_Texture_bar_graph.png)
-![Occasion/Event](Occasion_Event_bar_graph.png)
-![Style/Design](Style_Design_bar_graph.png)
-![Symbols](Symbols_bar_graph.png)
+<img src="overall_standing.png" alt="Categories" width="500"/> <img src="Attributes_bar_graph.png" alt="Attributes" width="500"/>
+<img src="Gemstones_bar_graph.png" alt="Gemstones" width="500"/> <img src="Animal-themed_bar_graph.png" alt="Animal-themed" width="500"/>
+<img src="Color_bar_graph.png" alt="Color" width="500"/> <img src="Material_Texture_bar_graph.png" alt="Material/Texture" width="500"/>
+<img src="Occasion_Event_bar_graph.png" alt="Occasion/Event" width="500"/> <img src="Style_Design_bar_graph.png" alt="Style/Design" width="500"/>
+<img src="Symbols_bar_graph.png" alt="Symbols" width="500"/>
+
+
+#### Key findings:
+
+- **Category Significance:** The first graph showcases the categories/attributes that are given the highest importance in the Amazon market. The subsequent graphs break down the words within each category, highlighting their significance and relevance.
+- **Most Occurred Theme:** The most occurred theme is the "Heart" symbol with 1772 occurrences.
+
+- **Popular Gemstone:** "Diamond" is the most popular gemstone mentioned with 968 occurrences.
+
+- **Common Material/Texture:** "Beaded" and "Enamel" are relatively common materials used in jewelry, with 480 and 443 occurrences respectively.
+
+- **Preferred Style/Design:** "Bohemian" and "Modern" are popular styles with 288 and 598 occurrences respectively.
+
+- **Frequent Occasion/Event:** "Wedding" is the most mentioned occasion with 1438 occurrences.
+
+- **Dominant Color:** "White" and "Black" are dominant colors with 1391 and 1184 occurrences respectively.
+
+- **Attributes:** "Adjustable" is a common attribute mentioned with 1340 occurrences.
+
+The top three categories were color, occasions and then symbols meaing that sellers on amazon heavily focus on these three jewelry attributes, The least focused attribute is animal theme and that can be a niche we can explore and target when basing on what sort of jewelry product to sell. I asked chatgpt if it can suggest a product idea targeting a specific niceh from out above categroies this is the idea it gave me for a product:
+
+#### Adaptive Charm Bracelets
+##### Modular Design
+- **Modular Design:** The base bracelet should have a modular design, allowing easy attachment and detachment of charms. This ensures a user-friendly experience for customization.
+- **Adjustable Size:** Include an adjustable mechanism to fit various wrist sizes comfortably.
+- **High-Quality Materials:** Craft the base bracelet from durable and hypoallergenic materials to ensure long-lasting wear.
+
+##### Interchangeable Charms
+- **Secure Attachment:** Design charms with a secure and easy-to-use attachment mechanism to prevent accidental detachment.
+- **Diverse Materials:** Create charms using various materials like enamel, acrylic, leather, and metals to cater to different aesthetic preferences.
+- **Personalization:** Incorporate options for customers to personalize certain charms, such as engraving initials or significant dates.
+
+##### Mood-Sensing Technology
+- **Subtle Changes:** Implement mood-sensing technology that subtly alters the color or texture of the bracelet. The changes should be noticeable but not overpowering.
+- **User Calibration:** Provide a calibration feature in the mobile app, allowing users to adjust the sensitivity of the mood-sensing technology based on their individual preferences.
+
+##### Theme Collections
+- **Thematic Design:** Each theme collection should have a cohesive design with charms that complement each other. For example, the "Celestial Collection" could include charms inspired by stars, moons, and galaxies.
+- **Limited Edition Packaging:** Enhance the exclusivity of theme collections with special packaging, possibly including a brief description of the inspiration behind the collection.
+
+##### I then asked Gpt why it picked the product idea and what was the reason for it. 
+
+- **Personalized Jewelry:** The data highlights a strong preference for personalized jewelry, especially items that can be adjusted for a perfect fit.
+
+- **Crucial Events:** Events like weddings and birthdays are identified as crucial, indicating potential opportunities for themed jewelry.
+
+- **Interest in Themes:** There is a notable interest in themes such as animals, gemstones, symbols, and occasions/events.
+
+##### Concept Overview.
+
+Our concept revolves around allowing users to easily switch out charms based on their mood or preferences, incorporating the identified themes and catering to the significance of events.
+
+- **Material Preferences:** People have different material preferences, including acrylic, enamel, and leather. Our adaptive charm bracelets will utilize a mix of these materials to attract a broad audience.
+
+- **Fashion-Tech Integration:** Adding technology such as mood-sensing and smart features aligns with the modern trend of blending fashion with tech, appealing to those who value both style and functionality.
+
+- **Limited Edition Charm Sets:** Addressing the interest in exclusivity, we propose limited edition charm sets. Collaborating with artists or influencers for these sets adds uniqueness and excitement for customers.
+
+- **Market Focus:** Tailoring this idea specifically for the KSA and UAE market involves considering cultural preferences and the popularity of personalized accessories in these regions.
+
+Based on the ideas and design details provided by ChatGPT, I then generated an AI image following the prompt given by ChatGPT. Here is what our product idea should look like.
+Adaptive Charm Bracelets
+
+![Bracelet](bracelet%20(2).png)
+
 
 
 ### Summary
