@@ -29,7 +29,6 @@ The extraction process involves scraping vital product information from Amazon. 
 - **Availability**
 
 The script utilizes Python's BeautifulSoup and multithreading for efficient data extraction. It scrapes data from specified Amazon URLs, forming the basis for further analysis.
-
 ```python
 # from concurrent.futures import ThreadPoolExecutor
 from bs4 import BeautifulSoup
@@ -152,11 +151,13 @@ In this phase, PostgreSQL scripts were utilized for data cleaning and analysis, 
 2. `products_ae`: Amazon UAE product data.
 3. `fixtures`: Amazon UAE reviews (for `products_ae`).
 
-During the process, a specific SQL script was employed to address the accidental deletion of a column from `products_ae`. The script involves joining tables to combine review columns for comprehensive analysis of `products_ae`.
+During the analytical process, a specific SQL script was employed to address the accidental deletion of a column from `products_ae`. The script involves joining tables to combine review columns for comprehensive analysis of `products_ae`. Additionally, a data quality check was done in Excel, where duplicate values were removed from the title column, and unique IDs were assigned to the datasets. Further cleaning and data checks were done regularly in Excel and then conducted on SQL due to personal preferences.
+
+Aside from that, I won't go into much detail about the data quality check & error handling. Let's proceed with the findings and the script.
+
 
 
 #### 1) Update & Cleaning for `products_ae` & `products table`.
-
 Cleaning string data as there were many unncessary words and characters
 ```sql
 -- Remove unwanted words/text
@@ -192,7 +193,36 @@ SELECT * FROM products_uae;
 ```
 #### 2) Exploratory Data Analysis:
 Category Analysis:
+During the data cleaning phase, I made an intriguing discovery related to handling null values in the 'rating' column. While contemplating how to manage null values, it occurred to me that the absence of a rating might indicate that a product was never rated. Consequently, I decided to retain all the null values in the 'rating' column.
+
+This decision revealed a significant insight: there are a total of 9,045 NULL values in the 'rating' column. This finding suggests that, among our list of 23,029 listings, approximately 39% of the products were never rated. In practical terms, this implies a 39% chance that a newly launched product might never receive a rating throughout its lifetime.
+```sql
+SELECT
+  SUM(CASE WHEN rating IS NULL THEN 1 ELSE 0 END) AS no_rating,
+  SUM(CASE WHEN rating IS NOT NULL THEN 1 ELSE 0 END) AS rated
+FROM products_merged;
+```
+![Nulldistribution](39%25.png)
+
 Looking at descriptive statistics:
+Check all relevant column totals and averages.
+```sql
+-- Check column totals and averages
+SELECT
+    ROUND(AVG(rating::numeric), 1) AS average_rating,
+    SUM(reviews) AS number_of_reviews,
+    ROUND(AVG(price), 0) AS avg_product_price,
+    COUNT(categories) AS cat_count,
+    SUM(price) AS cat_price
+FROM
+    products_merged
+WHERE
+    rating IS NOT NULL;
+```
+| Average Rating | Number of Reviews | Avg Product Price | Cat Count | Cat Price |
+|:--------------:|:-----------------:|:-----------------:|:---------:|:---------:|
+|      4.2       |      5,398,652     |        137        |   13,984  | 1,742,976 |
+
 ```sql
 -- Show cats with average rating, average product price, cat count, and number of reviews
 SELECT
@@ -210,16 +240,16 @@ GROUP BY
 ORDER BY
     number_of_reviews DESC;
 ```
-| Categories  | Average Rating | Number of Reviews | Average Product Price | Category Count |
-|-------------|-----------------|-------------------|------------------------|----------------|
-| Earrings    | 4.2             | 1,356,483         | 118                    | 3,647          |
-| Bracelets   | 4.3             | 1,300,685         | 128                    | 3,114          |
-| Necklaces   | 4.3             | 1,096,230         | 159                    | 2,867          |
-| Others      | 4.2             | 639,381           | 146                    | 1,838          |
-| Rings       | 4.2             | 635,337           | 135                    | 1,600          |
-| Other       | 4.3             | 253,869           | 171                    | 510            |
-| Charms      | 4.7             | 66,461            | 212                    | 113            |
-| Brooches    | 4.6             | 50,206            | 95                     | 295            |
+| Categories  | Average Rating | Number of Reviews | Average Product Price | Category Count | category price | 
+|-------------|-----------------|-------------------|------------------------|----------------|-----------|
+| Earrings    | 4.2             | 1,356,483         | 118                    | 3,647          | 41,3038   | 
+| Bracelets   | 4.3             | 1,300,685         | 128                    | 3,114          | 37,7852   | 
+| Necklaces   | 4.3             | 1,096,230         | 159                    | 2,867          | 43,5953   |
+| Others      | 4.2             | 639,381           | 146                    | 1,838          | 24,4335   | 
+| Rings       | 4.2             | 635,337           | 135                    | 1,600          | 14,0593   | 
+| Other       | 4.3             | 253,869           | 171                    | 510            | 80,497    | 
+| Charms      | 4.7             | 66,461            | 212                    | 113            | 23,105    |
+| Brooches    | 4.6             | 50,206            | 95                     | 295            | 27,603    |
 
 Categrory spread between the two regions.
 ```sql
@@ -255,7 +285,7 @@ SELECT
 FROM products_merged;
 ```
 
-Check for words with solid rartings and there are any in our data.  
+Check for words with solid ratings and their count.  
 ```sql
 -- Show words with average high rating and highest word occurrence
 SELECT
@@ -276,7 +306,7 @@ LIMIT 20;
 ```
 ![Highest rate words](word_rating.png)
 
-Lets get a count of relvant word and the number of time its mentioned in the data set. for this we will remove words with less than three characters. 
+Lets get a count of relevant word and the number of time its mentioned in the data set. for this we will remove words with less than three characters. 
 ```sql
 -- Get the most occurring words
 SELECT
@@ -370,9 +400,9 @@ GROUP BY
 ORDER BY
     word_count DESC;
 ```
-![Category distribution](cat_rank.png)
+![Category distribution](cat_rank.png) 
 
-Look for brand domincance in our listing data. 
+Look for brand dominance in our listing data. 
 Brand Analysis:
 ```sql
 -- Check brand summary
@@ -411,16 +441,16 @@ LIMIT 10;
 ```
 | Brand                  | Average Rating | Total Reviews | Brand Count | Average Price |
 |------------------------|-----------------|---------------|-------------|---------------|
-| GENERIC                | 4.4             | 155,796       | 1,126       | $143.1        |
-| PANDORA                | 4.5             | 264,843       | 561         | $298.7        |
-| ZAVERI PEARLS          | 3.9             | 89,548        | 356         | $48.7         |
-| RIBAI                  | 4.2             | 1,950         | 354         | $88.4         |
-| SWAROVSKI              | 4.6             | 147,282       | 314         | $548.8        |
-| YOUBELLA               | 3.9             | 202,468       | 250         | $41.0         |
-| OTHER                  | 3.7             | 2,024         | 229         | $62.6         |
-| SHINING DIVA FASHION   | 3.8             | 119,834       | 228         | $59.4         |
-| YELLOW CHIMES          | 3.9             | 84,869        | 212         | $34.4         |
-| GUESS                  | 4.2             | 12,662        | 203         | $169.3        |
+| GENERIC                | 4.4             | 155,796       | 1,126       | 143.1        |
+| PANDORA                | 4.5             | 264,843       | 561         | 298.7        |
+| ZAVERI PEARLS          | 3.9             | 89,548        | 356         | 48.7         |
+| RIBAI                  | 4.2             | 1,950         | 354         | 88.4         |
+| SWAROVSKI              | 4.6             | 147,282       | 314         | 548.8        |
+| YOUBELLA               | 3.9             | 202,468       | 250         | 41.0         |
+| OTHER                  | 3.7             | 2,024         | 229         | 62.6         |
+| SHINING DIVA FASHION   | 3.8             | 119,834       | 228         | 59.4         |
+| YELLOW CHIMES          | 3.9             | 84,869        | 212         | 34.4         |
+| GUESS                  | 4.2             | 12,662        | 203         | 169.3        |
 
 Lets compare the brand performances across our regions. 
 ```sql
@@ -503,7 +533,7 @@ Developed a comprehensive dashboard designed for tracking top listings, with a s
 
 
 ### Sentiment analysis with chatgpt
-I fed the list of the top most frequently occurring words from both Amazon KSA and UAE datasets into ChatGPT. The goal was to obtain a basic overview of similarities and differences between the two countries bellow are the findings:
+I fed the list of the top most frequently occurring words from both Amazon KSA and UAE datasets into ChatGPT. The goal was to obtain a basic overview of similarities and differences between the two countries bellow are chatgpt's findings:
 
 #### UAE Preferences:
 - The presence of terms like "Pandora" and "Swarovski" suggests a potential sentiment of sophistication and luxury.
@@ -540,7 +570,7 @@ With the help of GPT, I was able to categorize the list of most occurring words.
 
 After getting these categories, I further processed and refined my words data onto these categories via excel after that I hopped over to Python to generate a bunch of colorful bar graphs, as these words had some interesting findings and stories to tell.
 
-### Viuals with Python libraries:
+### Visuals with Python libraries matplo & numpy:
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
@@ -641,7 +671,7 @@ Our concept revolves around allowing users to easily switch out charms based on 
 Based on the ideas and design details provided by ChatGPT, I then generated an AI image following the prompt given by ChatGPT. Here is what our product idea should look like.
 Adaptive Charm Bracelets
 
-![Bracelet](bracelet%20(2).png)
+<img src="brace.png" alt="Attributes" width="500"/> <img src="bracelet%20(2).png" alt="Attributes" width="500"/>
 
 
 
@@ -649,7 +679,7 @@ Adaptive Charm Bracelets
 
 ### Product Design Strategy
 
-To create a distinctive product in the competitive market, it is can be very beneficial to design features & ideas recommended by Ai and combine Ai generated ideas with human ideas.
+To create a distinctive product in the competitive market, it can be very beneficial to design features & ideas recommended by Ai and combine Ai generated ideas with human ideas.
 
 #### Instagram Influencer Collaboration
 
@@ -670,7 +700,7 @@ By allowing influencers to sell these exclusive charms as part of their own bran
 - **Versatility:**
   Leverage the versatility of bracelets, making them suitable for a wide range of occasions and preferences.
 
-- **Customization Trends:**
+- **Customization:**
   Implement customizable elements, such as adjustable features and personalized charms, aligning with market preferences.
 
 - **Tech Integration:**
@@ -679,16 +709,32 @@ By allowing influencers to sell these exclusive charms as part of their own bran
 - **Limited Edition Concept:**
   Embrace the concept of limited edition charm sets, fostering a sense of exclusivity and anticipation among customers.
 
-#### Conclusion
+## Conclusion
 
-In conclusion, the strategic focus on designing bracelets, enriched by both ChatGPT's analytical insights and personalized recommendations, is poised to yield a unique and market-relevant product. The collaboration with Instagram influencers adds an extra layer of exclusivity and branding. This combined approach addresses the dynamic demands of the Amazon Middle East jewelry market, providing a pathway for success in this thriving e-commerce landscape.
+The use of ChatGPT and AI models, combined with a human touch, can provide solid and unique product designs and ideas for launching and competing in the market. There are unlimited ideas, inspirations, and designs to explore. In a sense, we are combining artistic and statistical elements to give us the best possible designs to choose from, which I find pretty neat and believe can greatly assist individual sellers.
 
- 
+For anyone looking to start selling on Amazon, they can use the above scraper to gather data in any category they prefer. They can then combine that data with AI models to generate useful insights and ideas on how to stand out from the crowd on Amazon.
 
+As time progresses, more and more tasks are being automated. While there is a significant number of people with a negative outlook towards AI and valid concerns, this project aims to showcase the positive side of how AI can assist us in various tasks and enhance productivity.
 
+This project also highlights the invaluable nature of data analysis. I was able to gather all the above insights using only five variables: title, price, rating, reviews, and price. As this was my first web scraping project, I did not collect a larger dataset; regardless, I hope this project showcases to new aspiring data analysts and those considering entering data analytics how intriguing the field can be. There are still many unexplored areas in the data mentioned above that I haven't ventured into yet.
 
+## Analytics Approach
 
+### 1. Data Extraction and Web Scraping
+Utilizing Python for web scraping, the project extracts valuable information from Amazon's jewelry product listings. A curated list of URLs is processed to gather data on titles, prices, ratings, reviews, availability, and brand information.
 
+### 2. Data Transformation with SQL and Excel
+Post data extraction, the collected raw data undergoes transformation using a combination of SQL and Excel. SQL scripts are employed to clean and structure the data, addressing any inconsistencies or missing values. Excel is then used for additional refinement and formatting.
 
+### 3. Analysis and Visualization using Tableau
+With the transformed dataset, Tableau is employed for in-depth analysis and visualization. Key performance indicators, trends, and patterns in the jewelry market are visually represented, offering a comprehensive understanding of the data.
 
+### 4. Sentiment Analysis and Idea Generation with ChatGPT
+To add a unique dimension, ChatGPT is leveraged for sentiment analysis, idea generation, and summarization. The AI model assists in extracting insights from customer reviews, understanding market sentiments, and generating innovative product ideas.
+
+### 5. Conclusion and Decision-Making
+The insights derived from the analytics process serve as a foundation for decision-making. The combination of statistical analyses, AI-generated ideas, and human interpretation results in a well-rounded understanding of the market, enabling informed decisions for product development and market entry strategies.
+
+This analytics approach ensures a thorough examination of the data, incorporating both quantitative and qualitative aspects, and leveraging advanced technologies for a holistic understanding of the jewelry market on Amazon.
 
