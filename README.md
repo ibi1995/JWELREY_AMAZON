@@ -146,12 +146,16 @@ In this phase, PostgreSQL scripts were utilized for data cleaning and analysis, 
 During the process, a specific SQL script was employed to address the accidental deletion of a column from `products_ae`. The script involves joining tables to combine review columns for comprehensive analysis of `products_ae`.
 
 
-#### 1) Update & Cleaning:
+#### 1) Update & Cleaning for `products_ae` & `products table`.
+
+Cleaning string data as there were many unncessary words and characters
 ```sql
 -- Remove unwanted words/text
 UPDATE products_ae
 SET reviews = UPPER(TRIM(REPLACE(reviews, 'S', '')));
-
+```
+Added a new column to categorize jewelrey type,  
+```sql
 -- Segregate title based on category type
 ALTER TABLE products_ae
 ADD COLUMN categories VARCHAR(255));
@@ -169,7 +173,7 @@ SET categories =
         ELSE 'others'
     END;
 ```
-Merge the two data sets
+Merging the two tables together by creating a new table.
 ```sql
 -- Create a new table 'products_merged' by merging 'products' and 'products_uae'
 CREATE TABLE products_merged AS
@@ -179,8 +183,8 @@ SELECT * FROM products_uae;
 ```
 #### 2) Exploratory Data Analysis:
 Category Analysis:
+Looking at descriptive statistics:
 ```sql
-
 -- Show cats with average rating, average product price, cat count, and number of reviews
 SELECT
     categories,
@@ -208,6 +212,7 @@ ORDER BY
 | Charms      | 4.7             | 66,461            | 212                    | 113            |
 | Brooches    | 4.6             | 50,206            | 95                     | 295            |
 
+Categrory spread between the two regions.
 ```sql
 -- Check category distribution between UAE and KSA
 SELECT
@@ -231,6 +236,7 @@ GROUP BY
 ![Category distribution](cat_distribution.png)
 
 Word Analysis:
+Lets seprate each distinct word from our merged table and store it in a temporary table for further analysis.
 ```sql
 -- Create the temporary table
 CREATE TEMPORARY TABLE temp_word AS
@@ -238,7 +244,10 @@ SELECT
     DISTINCT UNNEST(STRING_TO_ARRAY(LOWER(title), ' ')) AS word,
     rating
 FROM products_merged;
+```
 
+Check for words with solid rartings and there are any in our data.  
+```sql
 -- Show words with average high rating and highest word occurrence
 SELECT
     word,
@@ -258,6 +267,7 @@ LIMIT 20;
 ```
 ![Highest rate words](word_rating.png)
 
+Lets get a count of relvant word and the number of time its mentioned in the data set. for this we will remove words with less than three characters. 
 ```sql
 -- Get the most occurring words
 SELECT
@@ -302,15 +312,16 @@ ORDER BY
 | 2359       | gifts     |
 | 2298       | chain     |
 
+Lets look at the distribution of materials in both the region. 
 ```sql
 -- Check material distribution
 SELECT
     word,
     COUNT(word) AS word_count
 FROM
-    temp_words
+    temp_word
 WHERE
-    word IN ('bronze', 'gold', 'silver', 'sterling',' copper', 'titanium','alloy','zinc')
+    word IN ('bronze', 'gold', 'silver', 'copper', 'titanium','alloy','zinc')
 GROUP BY
     word
 ORDER BY
@@ -549,12 +560,12 @@ for category, values in data.items():
 
     plt.show()
 ```
+![Categories](overall_standing.png)
 ![Attributes](Attributes_bar_graph.png)
 ![Gemstones](Gemstones_bar_graph.png)
 ![Animal-themed](Animal-themed_bar_graph.png)
 ![Color](Color_bar_graph.png)
 ![Material/Texture](Material_Texture_bar_graph.png)
-![Metals](Metals_bar_graph.png)
 ![Occasion/Event](Occasion_Event_bar_graph.png)
 ![Style/Design](Style_Design_bar_graph.png)
 ![Symbols](Symbols_bar_graph.png)
