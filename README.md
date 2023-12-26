@@ -1,4 +1,4 @@
-# JEWELRY_AMAZON Data Analytics Project
+# Data-Backed Decisions: Insights into the Amazon Jewelry Ecosystem
 
 The primary objectives of this project are to:
 
