@@ -1,12 +1,14 @@
 ---
-title: "$title$"
-author: "$author$"
-date: "$date$"
-fontsize: $fontsize$
-documentclass: $documentclass$
+title: "Design Jewelry"
+author: "Ibrahim Najeeb"
+date: "2023-12-27"
+fontsize: 12pt
+documentclass: article
 classoption:
-- $classoption$
+  - twocolumn
 ---
+
+\documentclass[$fontsize$]{$documentclass$}
 
 % Preamble
 \usepackage{fontspec}
@@ -34,9 +36,6 @@ classoption:
 \begin{document}
 
 \maketitle
-$if(toc)$
-\tableofcontents
-$endif$
 
 $body$
 
