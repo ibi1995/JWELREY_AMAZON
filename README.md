@@ -603,15 +603,11 @@ for category, values in data.items():
 
     plt.show()
 ```
-<img src="overall_standing.png" alt="Categories" width="500" style="width:500px;"/> 
-<img src="Attributes_bar_graph.png" alt="Attributes" width="500" style="width:500px;"/>
-<img src="Gemstones_bar_graph.png" alt="Gemstones" width="500" style="width:500px;"/> 
-<img src="Animal-themed_bar_graph.png" alt="Animal-themed" width="500" style="width:500px;"/>
-<img src="Color_bar_graph.png" alt="Color" width="500" style="width:500px;"/> 
-<img src="Material_Texture_bar_graph.png" alt="Material/Texture" width="500" style="width:500px;"/>
-<img src="Occasion_Event_bar_graph.png" alt="Occasion/Event" width="500" style="width:500px;"/> 
-<img src="Style_Design_bar_graph.png" alt="Style/Design" width="500" style="width:500px;"/>
-<img src="Symbols_bar_graph.png" alt="Symbols" width="500" style="width:500px;"/>
+![Categories](overall_standing.png) ![Attributes](Attributes_bar_graph.png)
+![Gemstones](Gemstones_bar_graph.png) ![Animal-themed](Animal-themed_bar_graph.png)
+![Color](Color_bar_graph.png) ![Material/Texture](Material_Texture_bar_graph.png)
+![Occasion/Event](Occasion_Event_bar_graph.png) ![Style/Design](Style_Design_bar_graph.png)
+![Symbols](Symbols_bar_graph.png)
 
 
 #### Key findings:
@@ -675,8 +671,8 @@ Our concept revolves around allowing users to easily switch out charms based on 
 Based on the ideas and design details provided by ChatGPT, I then generated an AI image following the prompt given by ChatGPT. Here is what our product idea should look like.
 Adaptive Charm Bracelets
 
-<img src="brace.png" alt="Attributes" width="500"/> 
-<img src="bracelet%20(2).png" alt="Attributes" width="500"/>
+![Attributes](brace.png)
+![Attributes](bracelet%20(2).png)
 
 
 ## Recommendations: 
