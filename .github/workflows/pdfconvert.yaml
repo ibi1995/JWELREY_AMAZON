@@ -21,7 +21,7 @@ jobs:
     - name: Convert to PDF
       uses: docker://pandoc/latex:2.13
       with:
-        args: "styled_readme.md -o output.pdf --template=eisvogel --listings --css=style.css"
+        args: "styled_readme.md -o output.pdf --template=eisvogel.latex --listings --css=style.css"
 
     - name: Upload PDF as artifact
       uses: actions/upload-artifact@v2
