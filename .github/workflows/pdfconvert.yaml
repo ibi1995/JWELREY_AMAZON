@@ -13,21 +13,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2.7.0
 
-      - name: Customize styles
-        run: |
-          echo "<style>* { font-family: 'Arial', sans-serif; }</style>" >> style.css
-          cat README.md >> styled_readme.md
-
       - name: Convert to PDF
         uses: docker://pandoc/latex:2.13
         with:
           args:
-            - "styled_readme.md"
+            - "README.md"
             - "-o"
             - "output.pdf"
-            - "--template=eisvogel.latex"
             - "--listings"
-            - "--css=style.css"
 
       - name: Upload PDF as artifact
         uses: actions/upload-artifact@v2
