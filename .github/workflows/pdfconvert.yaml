@@ -18,7 +18,7 @@ jobs:
         echo "<style>* { font-family: 'Arial', sans-serif; }</style>" >> style.css
         cat README.md >> styled_readme.md
 
-    - name: Convert to PDF
+       - name: Convert to PDF
       uses: docker://pandoc/latex:2.13
       with:
         args:
