@@ -15,11 +15,10 @@ jobs:
       uses: docker://pandoc/latex:2.13
       with:
         args:
-        - "README.md"
-        - "-o"
-        - "output.pdf"
-        - "--template=eisvogel.latex"
-
+          - "README.md"
+          - "-o"
+          - "output.pdf"
+          - "--template=eisvogel.latex"
 
     - name: Upload PDF as artifact
       uses: actions/upload-artifact@v2
