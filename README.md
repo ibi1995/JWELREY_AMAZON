@@ -603,11 +603,29 @@ for category, values in data.items():
 
     plt.show()
 ```
-![Categories](overall_standing.png) ![Attributes](Attributes_bar_graph.png)
-![Gemstones](Gemstones_bar_graph.png) ![Animal-themed](Animal-themed_bar_graph.png)
-![Color](Color_bar_graph.png) ![Material/Texture](Material_Texture_bar_graph.png)
-![Occasion/Event](Occasion_Event_bar_graph.png) ![Style/Design](Style_Design_bar_graph.png)
-![Symbols](Symbols_bar_graph.png)
+<p float="left">
+  <img src="overall_standing.png" width="500" />
+  <img src="Attributes_bar_graph.png" width="500" />
+</p>
+
+<p float="left">
+  <img src="Gemstones_bar_graph.png" width="500" />
+  <img src="Animal-themed_bar_graph.png" width="500" />
+</p>
+
+<p float="left">
+  <img src="Color_bar_graph.png" width="500" />
+  <img src="Material_Texture_bar_graph.png" width="500" />
+</p>
+
+<p float="left">
+  <img src="Occasion_Event_bar_graph.png" width="500" />
+  <img src="Style_Design_bar_graph.png" width="500" />
+</p>
+
+<p float="left">
+  <img src="Symbols_bar_graph.png" width="500" />
+</p> 
 
 
 #### Key findings:
@@ -671,9 +689,10 @@ Our concept revolves around allowing users to easily switch out charms based on 
 Based on the ideas and design details provided by ChatGPT, I then generated an AI image following the prompt given by ChatGPT. Here is what our product idea should look like.
 Adaptive Charm Bracelets
 
-![Attributes](brace.png)
-![Attributes](bracelet%20(2).png)
-
+<p float="left">
+  <img src="brace.png" width="500" />
+  <img src="bracelet%20(2).png" width="500" />
+</p> 
 
 ## Recommendations: 
 
