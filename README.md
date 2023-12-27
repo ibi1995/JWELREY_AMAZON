@@ -202,7 +202,7 @@ SELECT
   SUM(CASE WHEN rating IS NOT NULL THEN 1 ELSE 0 END) AS rated
 FROM products_merged;
 ```
-![Nulldistribution](39%25.png)
+![Nulldistribution](images/39%25.png)
 
 Looking at descriptive statistics:
 Check all relevant column totals and averages.
@@ -272,7 +272,7 @@ FROM (
 GROUP BY
     categories;
 ```
-![Category distribution](cat_distribution.png)
+![Category distribution](images/cat_distribution.png)
 
 Word Analysis:
 Lets seprate each distinct word from our merged table and store it in a temporary table for further analysis.
@@ -304,7 +304,7 @@ ORDER BY
     word_count DESC
 LIMIT 20;
 ```
-![Highest rate words](word_rating.png)
+![Highest rate words](images/word_rating.png)
 
 Lets get a count of relevant word and the number of time its mentioned in the data set. for this we will remove words with less than three characters. 
 ```sql
@@ -366,7 +366,7 @@ GROUP BY
 ORDER BY
     word_count DESC;
 ```
-![Material distribution](material.png)
+![Material distribution](images/material.png)
 
 Lets See the number of jewelry listings between men and women
 ```sql
@@ -383,7 +383,7 @@ GROUP BY
 ORDER BY
     word_count DESC;
 ```
-![Gender distribution](men_women.png)
+![Gender distribution](images/men_women.png)
 
 Lets see the total jewelry catgeory distribution in our merged data. 
 ```sql
@@ -400,7 +400,7 @@ GROUP BY
 ORDER BY
     word_count DESC;
 ```
-![Category distribution](cat_rank.png) 
+![Category distribution](images/cat_rank.png) 
 
 Look for brand dominance in our listing data. 
 Brand Analysis:
@@ -516,7 +516,7 @@ This would be the end of our sql journey so far eveyrthing looks good and our da
 Developed a comprehensive dashboard designed for tracking top listings, with a specific focus on their ratings, reviews, and prices. This tool offers a user-friendly interface that provides a clear overview of key metrics associated with leading products and their respective listings. The dashboard is equipped with intuitive interactive features, ensuring easy navigation and understanding of the performance of top-rated products. Additionally, the system allows for the seamless integration of more listing data to display the latest top listings, complete with their categories, country of origin, and availability.
 [Link to Dashboard](https://public.tableau.com/views/Jewelrey_listing/Dashboard32?:language=en-US&:display_count=n&:origin=viz_share_link) 
 
-![Dashboard](listing_dashboard.png)
+![Dashboard](images/listing_dashboard.png)
 
 
 ### Top Listings Overview:
@@ -604,13 +604,13 @@ for category, values in data.items():
     plt.show()
 ```
 <p float="left">
-  <img src="overall_standing.png" width="500" />
-  <img src="Attributes_bar_graph.png" width="500" />
+  <img src="images/overall_standing.png" width="500" />
+  <img src="images/Attributes_bar_graph.png" width="500" />
 </p>
 
 <p float="left">
-  <img src="Gemstones_bar_graph.png" width="500" />
-  <img src="Animal-themed_bar_graph.png" width="500" />
+  <img src="images/Gemstones_bar_graph.png" width="500" />
+  <img src="images/Animal-themed_bar_graph.png" width="500" />
 </p>
 
 <p float="left">
@@ -619,12 +619,12 @@ for category, values in data.items():
 </p>
 
 <p float="left">
-  <img src="Occasion_Event_bar_graph.png" width="500" />
-  <img src="Style_Design_bar_graph.png" width="500" />
+  <img src="images/Occasion_Event_bar_graph.png" width="500" />
+  <img src="images/Style_Design_bar_graph.png" width="500" />
 </p>
 
 <p float="left">
-  <img src="Symbols_bar_graph.png" width="500" />
+  <img src="images/Symbols_bar_graph.png" width="500" />
 </p> 
 
 
@@ -690,8 +690,8 @@ Based on the ideas and design details provided by ChatGPT, I then generated an A
 Adaptive Charm Bracelets
 
 <p float="left">
-  <img src="brace.png" width="500" />
-  <img src="bracelet%20(2).png" width="500" />
+  <img src="images/brace.png" width="500" />
+  <img src="images/bracelet%20(2).png" width="500" />
 </p> 
 
 ## Recommendations: 
