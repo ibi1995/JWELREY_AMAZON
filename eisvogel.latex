@@ -1,3 +1,4 @@
+\usepackage{footnotebackref}
 %%
 % Copyright (c) 2017 - 2023, Pascal Wagler;
 % Copyright (c) 2014 - 2023, John MacFarlane
