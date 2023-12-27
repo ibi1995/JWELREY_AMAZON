@@ -614,8 +614,8 @@ for category, values in data.items():
 </p>
 
 <p float="left">
-  <img src="Color_bar_graph.png" width="500" />
-  <img src="Material_Texture_bar_graph.png" width="500" />
+  <img src="images/Color_bar_graph.png" width="500" />
+  <img src="images/Material_Texture_bar_graph.png" width="500" />
 </p>
 
 <p float="left">
