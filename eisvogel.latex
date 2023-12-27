@@ -1,4 +1,3 @@
-\usepackage{footnotebackref}
 %%
 % Copyright (c) 2017 - 2023, Pascal Wagler;
 % Copyright (c) 2014 - 2023, John MacFarlane
@@ -875,6 +874,8 @@ $else$
 $if(disable-header-and-footer)$
 $else$
 \usepackage[headsepline,footsepline]{scrlayer-scrpage}
+
+\usepackage{footnotebackref}
 
 \newpairofpagestyles{eisvogel-header-footer}{
   \clearpairofpagestyles
