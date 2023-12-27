@@ -603,11 +603,15 @@ for category, values in data.items():
 
     plt.show()
 ```
-<img src="overall_standing.png" alt="Categories" width="500"/> <img src="Attributes_bar_graph.png" alt="Attributes" width="500"/>
-<img src="Gemstones_bar_graph.png" alt="Gemstones" width="500"/> <img src="Animal-themed_bar_graph.png" alt="Animal-themed" width="500"/>
-<img src="Color_bar_graph.png" alt="Color" width="500"/> <img src="Material_Texture_bar_graph.png" alt="Material/Texture" width="500"/>
-<img src="Occasion_Event_bar_graph.png" alt="Occasion/Event" width="500"/> <img src="Style_Design_bar_graph.png" alt="Style/Design" width="500"/>
-<img src="Symbols_bar_graph.png" alt="Symbols" width="500"/>
+<img src="overall_standing.png" alt="Categories" width="500" style="width:500px;"/> 
+<img src="Attributes_bar_graph.png" alt="Attributes" width="500" style="width:500px;"/>
+<img src="Gemstones_bar_graph.png" alt="Gemstones" width="500" style="width:500px;"/> 
+<img src="Animal-themed_bar_graph.png" alt="Animal-themed" width="500" style="width:500px;"/>
+<img src="Color_bar_graph.png" alt="Color" width="500" style="width:500px;"/> 
+<img src="Material_Texture_bar_graph.png" alt="Material/Texture" width="500" style="width:500px;"/>
+<img src="Occasion_Event_bar_graph.png" alt="Occasion/Event" width="500" style="width:500px;"/> 
+<img src="Style_Design_bar_graph.png" alt="Style/Design" width="500" style="width:500px;"/>
+<img src="Symbols_bar_graph.png" alt="Symbols" width="500" style="width:500px;"/>
 
 
 #### Key findings:
@@ -671,8 +675,8 @@ Our concept revolves around allowing users to easily switch out charms based on 
 Based on the ideas and design details provided by ChatGPT, I then generated an AI image following the prompt given by ChatGPT. Here is what our product idea should look like.
 Adaptive Charm Bracelets
 
-<img src="brace.png" alt="Attributes" width="500"/> <img src="bracelet%20(2).png" alt="Attributes" width="500"/>
-
+<img src="brace.png" alt="Attributes" width="500"/> 
+<img src="bracelet%20(2).png" alt="Attributes" width="500"/>
 
 
 ## Recommendations: 
@@ -718,6 +722,10 @@ For anyone looking to start selling on Amazon, they can use the above scraper to
 As time progresses, more and more tasks are being automated. While there is a significant number of people with a negative outlook towards AI and valid concerns, this project aims to showcase the positive side of how AI can assist us in various tasks and enhance productivity.
 
 This project also highlights the invaluable nature of data analysis. I was able to gather all the above insights using only five variables: title, price, rating, reviews, and price. As this was my first web scraping project, I did not collect a larger dataset; regardless, I hope this project showcases to new aspiring data analysts and those considering entering data analytics how intriguing the field can be. There are still many unexplored areas in the data mentioned above that I haven't ventured into yet.
+
+
+
+
 
 ## Analytics Approach
 
