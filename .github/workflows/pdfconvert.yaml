@@ -11,17 +11,16 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2.7.0
+      uses: actions/checkout@v2
 
     - name: Convert to PDF
       uses: docker://pandoc/latex:2.13
       with:
         args:
-          - README.md
-          - -o
-          - output.pdf
-          - --template=eisvogel.latex
-          - --pdf-engine=xelatex  # or --pdf-engine=lualatex
+          - "README.md"
+          - "-o"
+          - "output.pdf"
+          - "--template=eisvogel.latex"
 
     - name: Upload PDF as artifact
       uses: actions/upload-artifact@v2
