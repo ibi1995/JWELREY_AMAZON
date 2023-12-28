@@ -1,3 +1,5 @@
+name: Convert to PDF
+
 on:
   push:
     branches:
@@ -14,7 +16,12 @@ jobs:
     - name: Convert to PDF
       uses: docker://pandoc/latex:2.13
       with:
-        args: README.md -o output.pdf --template=eisvogel.latex
+        args:
+          - "README.md"
+          - "-o"
+          - "output.pdf"
+          - "--template=eisvogel.latex"
+          - "--pdf-engine=xelatex"  # or "--pdf-engine=lualatex"
 
     - name: Upload PDF as artifact
       uses: actions/upload-artifact@v2
