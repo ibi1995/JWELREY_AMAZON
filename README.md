@@ -202,7 +202,7 @@ SELECT
   SUM(CASE WHEN rating IS NOT NULL THEN 1 ELSE 0 END) AS rated
 FROM products_merged;
 ```
-![Nulldistribution](images/39%25.png)
+<img src="images/39%25.png" alt="Nulldistribution">
 
 Looking at descriptive statistics:
 Check all relevant column totals and averages.
@@ -272,7 +272,7 @@ FROM (
 GROUP BY
     categories;
 ```
-![Category distribution](images/cat_distribution.png)
+<img src="images/cat_distribution.png" alt="Category distribution">
 
 Word Analysis:
 Lets seprate each distinct word from our merged table and store it in a temporary table for further analysis.
@@ -304,7 +304,7 @@ ORDER BY
     word_count DESC
 LIMIT 20;
 ```
-![Highest rate words](images/word_rating.png)
+<img src="images/word_rating.png" alt="Highest rate words">
 
 Lets get a count of relevant word and the number of time its mentioned in the data set. for this we will remove words with less than three characters. 
 ```sql
@@ -366,7 +366,7 @@ GROUP BY
 ORDER BY
     word_count DESC;
 ```
-![Material distribution](images/material.png)
+<img src="images/material.png" alt="Material distribution">
 
 Lets See the number of jewelry listings between men and women
 ```sql
@@ -383,7 +383,7 @@ GROUP BY
 ORDER BY
     word_count DESC;
 ```
-![Gender distribution](images/men_women.png)
+<img src="images/men_women.png" alt="Gender distribution">
 
 Lets see the total jewelry catgeory distribution in our merged data. 
 ```sql
@@ -400,7 +400,7 @@ GROUP BY
 ORDER BY
     word_count DESC;
 ```
-![Category distribution](images/cat_rank.png) 
+<img src="images/cat_rank.png" alt="Category distribution">
 
 Look for brand dominance in our listing data. 
 Brand Analysis:
@@ -516,7 +516,7 @@ This would be the end of our sql journey so far eveyrthing looks good and our da
 Developed a comprehensive dashboard designed for tracking top listings, with a specific focus on their ratings, reviews, and prices. This tool offers a user-friendly interface that provides a clear overview of key metrics associated with leading products and their respective listings. The dashboard is equipped with intuitive interactive features, ensuring easy navigation and understanding of the performance of top-rated products. Additionally, the system allows for the seamless integration of more listing data to display the latest top listings, complete with their categories, country of origin, and availability.
 [Link to Dashboard](https://public.tableau.com/views/Jewelrey_listing/Dashboard32?:language=en-US&:display_count=n&:origin=viz_share_link) 
 
-![Dashboard](images/listing_dashboard.png)
+<img src="images/listing_dashboard.png" alt="Dashboard">
 
 
 ### Top Listings Overview:
