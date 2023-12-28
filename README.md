@@ -1,13 +1,3 @@
----
-title: "Design Jewelry"
-author: "Ibrahim Najeeb"
-date: "2023-12-27"
-fontsize: 12pt
-documentclass: article
-classoption:
-  - twocolumn
----
-
 # Data-Backed Decisions: Insights into the Amazon Jewelry Ecosystem
 
 The primary objectives of this project are to:
