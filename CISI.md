@@ -682,5 +682,294 @@ Understanding these key points provides insights into the diverse features and t
 ### 3. Importance in Europe:
    - Crucial for financing the mortgage and public sector markets in Europe.
    - Vital for the European banking sector's future and individuals' ability to finance house loans at reasonable rates.
+     
+## International Bonds
 
-  
+### 1. Domestic and Foreign Bonds
+
+International bonds can be categorized as domestic or foreign based on their geographical issuance. Domestic bonds are issued by entities within their own country, denominated in the domestic currency. Conversely, foreign bonds are issued by overseas entities into a domestic market and are denominated in the domestic currency.
+
+
+**Domestic Bonds:**
+- Issued locally by a domestic entity.
+- Denominated in the local currency.
+
+**Foreign Bonds:**
+- Issued by overseas entities in a domestic market.
+- Denominated in the local currency.
+
+### 2. Eurobonds
+
+Eurobonds are significant international bond issues, commonly utilized by governments and multinational corporations. Originating in 1963, the market expanded rapidly in the 1970s. Contrary to the name, "euro" does not restrict issuance to European financial centres, and these bonds are denominated in a currency different from the issuing centre.
+
+**Characteristics:**
+- Often issued in multiple financial centres simultaneously.
+- Denominated in a currency different from the issuing centre.
+- 'Euro' prefix originates from the Eurodollar market.
+- Negative pledge clause prevents subordination of bondholders' interests to subsequent issues.
+
+**Advantages of Eurobonds:**
+- Offers a choice of innovative products.
+- Enables tapping into international lenders.
+- Provides anonymity to investors in bearer form.
+- Offers gross interest payments.
+- Lower funding costs due to market competitiveness and greater liquidity.
+- Allows for short-notice bond issues with less regulation and disclosure.
+
+**Common Types:**
+- Conventional bonds ('straights'), FRNs, ZCBs, convertible bonds, and dual-currency bonds.
+- Can feature a wide range of innovative characteristics.
+
+## Yields
+- Yields measure the returns on bonds and are crucial for investors.
+- Coupon reflects the interest rate on the nominal amount, but the actual purchase price may differ.
+- The bond's yield is the return percentage of the cost price.
+
+**Flat Yield Calculation:**
+- Flat yield is the interest paid on a bond as a percentage of its market price.
+- Calculated by dividing the annual coupon by the bond's price, then multiplying by 100.
+- Bond price is often stated as the price for a nominal value (e.g., US$100).
+
+**Example:**
+- Using a US Treasury bond with a 1.875% coupon and priced at US$96.18, the flat yield is calculated as (1.875 ÷ 96.18) x 100 = 1.95%.
+
+**Total Return:**
+- Interest earned on a bond is just one part of the total return.
+- The investor may also make a capital gain or loss if holding the bond until redemption.
+
+**Redemption Yield (Yield to Maturity):**
+- Incorporates both income and capital return if the investor holds the bond until maturity.
+- Combines flat yield and potential gain/loss for an average annual compound return.
+- Provides a more accurate indication of the return and helps compare different bonds.
+
+**Yield Curve:**
+- Illustrates different interest rates for similar debt instruments with various maturity dates.
+- In a positive yield curve (sloping upward), longer-term investments demand higher interest to compensate for greater risk and opportunity cost.
+
+**Key Takeaways:**
+- Yields measure returns on bonds, crucial for investors.
+- Flat yield is the interest percentage based on the bond's market price.
+- Redemption yield considers both income and capital return.
+- Yield to maturity provides a more accurate indication of return.
+- The yield curve shows interest rates for debt instruments with different maturity dates.
+
+# Other Financial Assets
+
+## Cash Deposits:
+
+### Characteristics:
+
+- Accounts held with banks or savings institutions.
+- Available to a wide range of depositors, including retail investors, companies, governments, and financial institutions.
+- Return comprises interest income with no potential for capital growth.
+- Capital is repaid in full at the end of the investment term.
+
+### Types of Accounts:
+
+- Instant access accounts allow withdrawals at any time.
+- Fixed-term accounts tie up funds for a specified period, demanding higher interest rates.
+- Interest rates vary based on the deposited amount and the time funds are tied up.
+
+### Islamic Savings Accounts:
+
+- Operate based on Shariah principles.
+- Avoid paying or receiving interest; profits are shared.
+- Expected profit rate advertised, not guaranteed.
+
+### Advantages and Disadvantages:
+
+- Advantages include liquidity, interest returns, and relative safety.
+- Disadvantages involve varying interest rates, inflation impact, and creditworthiness assessment of deposit-taking institutions.
+
+### Considerations for Overseas Deposits:
+
+- Currency conversion costs and exchange rate risks.
+- Assessment of banking system creditworthiness.
+- Understanding tax treatment and potential exchange controls.
+
+## Cryptocurrencies:
+
+### Definition:
+
+- Digital currencies or assets traded, stored, and transferred electronically.
+- Not legally established currency but gaining recognition.
+
+### Regulatory Classification:
+
+- Payment tokens (e.g., Bitcoin), security/investment tokens, and utility tokens.
+- Growing legal recognition in some countries (e.g., El Salvador, Ukraine).
+
+### Fiat Currency Overview:
+
+- Fiat money has no intrinsic value but is accepted as legal tender.
+- Transition from gold-backed to fiat money.
+- Three economic functions: store of value, medium of exchange, unit of account.
+
+### Cryptocurrencies vs. Fiat Currency:
+
+- Cryptocurrencies not widely accepted for daily transactions.
+- Volatility limits their use as a store of value.
+- Viewed more as speculative investments than a means of exchange.
+
+### Key Points:
+
+- Cash deposits offer liquidity, safety, and interest returns, but considerations include varying rates and creditworthiness.
+- Islamic savings accounts follow Shariah principles, avoiding interest and sharing profits.
+- Cryptocurrencies are digital assets gaining recognition; regulatory classifications include payment, security, and utility tokens.
+- Fiat money has no intrinsic value but is accepted as legal tender; cryptocurrencies are not yet widely used for daily transactions.
+
+## Money Markets
+
+### 1. Definition:
+
+- Wholesale or institutional markets for cash.
+- Characterized by short-dated negotiable securities with maturities up to one year.
+
+### 2. Comparison with Capital Markets:
+
+- Money markets focus on short-term financing needs.
+- Capital markets provide long-term finance through bonds or shares.
+
+### 3. Money Market Instruments:
+
+- **Treasury Bills:**
+  - Issued weekly by governments to meet short-term borrowing needs.
+  - Non-interest-bearing (zero-coupon) instruments.
+  - Issued at a discount, commonly redeemed after three months.
+
+- **Certificates of Deposit (CDs):**
+  - Issued by banks, representing tradable deposit accounts.
+  - Redeemable in a specified period with fixed or variable interest.
+  - Introduced to overcome rigidity in the interbank market.
+
+- **Commercial Paper (CP):**
+  - Corporate equivalent of a Treasury bill.
+  - Issued by large companies for short-term borrowing needs.
+  - Zero coupon, issued at a discount to par value.
+
+### 4. Accessibility and Settlement:
+
+- Money markets mainly accessed by institutional investors due to high minimum subscription.
+- Settlement through the same system as equities and bonds, typically on the trade day or the following business day.
+
+### 5. Money Market Accounts vs. Money Market Funds:
+
+- Money market accounts: savings accounts with a substantial minimum balance and notice period.
+- Money market funds: collective investment schemes investing in short-term debt instruments, offering advantages like pooled funds and potentially higher returns.
+
+## Advantages and Disadvantages:
+
+### 1. Advantages:
+
+- Money market investments provide a low-risk way to generate income or capital return.
+- Play a role in managing liquidity needs for banks and companies.
+
+### 2. Disadvantages:
+
+- Unsuitable for the medium to long term due to historical underperformance.
+- Returns may be barely positive after inflation and taxation.
+- Money market funds not covered by depositor protection schemes, carrying some risks.
+
+### 3. Role in Investment Portfolio:
+
+- Money market investments can serve as a short-term home for cash balances or an alternative to bonds and equities in uncertain times.
+- Money market funds offer pooled funds with access to a variety of assets and potentially greater returns.
+- Considerations include exposure to bank risk, rating levels, and currency risks.
+
+## Property
+
+### Uniqueness:
+
+- Each property is unique in location, structure, and design.
+- Valuation is subjective, lacking continuous and reliable price data.
+- Subject to complex legal considerations and high transaction costs upon transfer.
+
+### Liquidity and Diversification Challenges:
+
+- Relatively illiquid and not instantly tradeable.
+- Difficulty in diversification due to purchasing discrete and sizable units.
+- Limited ability to sell parts of a property individually.
+
+### Commercial vs. Residential Property:
+
+#### Residential Property:
+
+- Direct investment opportunities, including second homes and buy-to-let.
+- Short renewable leases, repairs typically landlord's responsibility.
+
+#### Commercial Property:
+
+- Limited direct investment for property companies and institutional investors.
+- Long-term leases, tenant usually responsible for repairs.
+
+### Supply and Demand Dynamics:
+
+- Finite land supply, influenced by legislation and planning regulations.
+- Price determined predominantly by changes in demand.
+
+### Advantages and Disadvantages:
+
+#### Advantages:
+
+- Historically provided positive long-term returns with low volatility.
+- Diversification benefits due to low correlation with other asset classes.
+- Reliable income stream, especially in commercial properties.
+
+#### Disadvantages:
+
+- Lack of liquidity, significant maintenance costs, and high transaction costs.
+- Prolonged downturns possible, especially in commercial property.
+- Limited suitability for long-term individual investors, more suitable for institutions.
+
+### Investment Approaches:
+
+- Private investors may engage through buy-to-let or second home purchases.
+- Indirect exposure through mutual funds, property bonds, or shares in property companies.
+
+**Note:** Investing via mutual funds may face liquidity challenges during market downturns.
+
+### Conclusion:
+
+- Property can be accessible through indirect investment means for smaller portfolios.
+- Commercial property is more suitable for long-term investing institutions, while indirect investment makes property accessible for smaller diversified portfolios.
+
+## Foreign Exchange (FX)
+
+1. **Basic Structure of FX Market:**
+   - Trading of one currency for another.
+   - Largest market globally.
+   - Historical context: Gold standard to Bretton Woods Agreement to free-floating currencies.
+
+2. **Currency Pairs and Quotes:**
+   - Trading in pairs, e.g., USD/JPY.
+   - Base currency (always one unit) vs. quote currency.
+   - Exchange rate quoted by market makers.
+   - Bid (buy) and ask (sell) prices provided.
+
+3. **FX Transactions:**
+   - Spot transactions: Immediate exchange, settled T+2.
+   - Forward transactions: Agreed exchange rate for a future date.
+   - Futures: Standardized forward transactions on derivatives exchanges.
+   - Swaps: Exchange of currencies for an agreed period.
+
+4. **Market Participants:**
+   - Large international banks as primary participants.
+   - Central banks involved in controlling money supply and interest rates.
+
+5. **Settlement:**
+   - Settlement through CLS Bank or the international banking system.
+   - CLS Bank's 'payment-versus-payment' system.
+
+6. **Forward Exchange Rates:**
+   - Agreement to buy/sell foreign currency at a fixed rate in the future.
+   - Calculated using the interest rate parity formula.
+   - Relationship between spot and forward rates influenced by nominal interest rates.
+
+7. **Interest Rate Parity Formula Example:**
+   - Given spot rate (GBP/USD) of 1.25.
+   - UK three-month rate: 0.125%, US rate: 0.25% (adjusted to quarterly).
+   - Forward rate calculated using the formula.
+
+8. **Interest Rate Parity Theory:**
+   - Forward exchange rate should make investors indifferent to interest rate differentials.
+   - Investors should be indifferent to returns in different currencies after a forward transaction.
